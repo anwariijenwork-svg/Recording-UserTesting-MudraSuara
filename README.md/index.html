@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        :root {
+            --bg-cream: #FDFBF7;
+            --main-purple: #6A4C93;
+            --soft-purple: #9D84B7;
+            --white: #FFFFFF;
+        }
+
+        body { background-color: var(--bg-cream); padding: 40px; font-family: sans-serif; }
+
+        .wrapper { display: flex; gap: 30px; max-width: 1200px; margin: auto; }
+
+        /* The 'vido' container */
+        #vido { 
+            flex: 3; 
+            background: #000; 
+            border-radius: 20px; 
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        #vido video { width: 100%; aspect-ratio: 16/9; display: block; }
+
+        /* The 'v2_sbicks' container */
+        #v2_sbicks { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px;
+        }
+
+        .category-label { color: var(--main-purple); font-weight: bold; margin-bottom: 5px; }
+
+        .video-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            border: 2px solid var(--soft-purple);
+            transition: 0.2s;
+        }
+        .video-item:hover { background: var(--soft-purple); color: white; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="vido">
+        <video id="mainPlayer" controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="v2_sbicks">
+        <div class="category-label">1st Prototype</div>
+        <div class="video-item" onclick="loadVideo('url1.mp4')">Video 1: Basic Recognition</div>
+        
+        <div class="category-label">2nd Prototype</div>
+        <div class="video-item" onclick="loadVideo('videos/v2_sbucks.mp4')">UTAR_Starbucks</div>
+        <div class="video-item" onclick="loadVideo('videos/v2_gerkatin.mp4')">UTAR_Difabis</div>
+    </div>
+
+    
+</div>
+
+<script>
+    function loadVideo(url) {
+        const player = document.getElementById('mainPlayer');
+        player.src = url;
+        player.play();
+    }
+</script>
+
+</body>
+</html>
